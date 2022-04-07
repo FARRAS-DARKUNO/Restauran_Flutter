@@ -1,9 +1,6 @@
-import 'package:http/http.dart';
-
 import 'api.dart';
 import 'dart:convert';
-
-import '../model/home_detail_data/homedata.dart';
+import '../model/home_detail_data/home_data.dart';
 
 class HomeDetail {
   final Api? api = Api();

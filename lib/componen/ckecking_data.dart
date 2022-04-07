@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:restauran_app_revisi/componen/haveData.dart';
-
+import 'package:restauran_app_revisi/componen/have_data.dart';
 import 'package:provider/provider.dart';
-import 'package:restauran_app_revisi/componen/haveSeacrh.dart';
-import 'package:restauran_app_revisi/provider/checkDataProvider.dart';
+import 'package:restauran_app_revisi/componen/have_seacrh.dart';
+import 'package:restauran_app_revisi/provider/check_data_provider.dart';
 
 class Checking extends StatelessWidget {
   @override

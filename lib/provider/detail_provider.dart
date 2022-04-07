@@ -16,6 +16,15 @@ class RestaurantDetailProvider extends ChangeNotifier {
   String _message = '';
   late ResultState _state;
 
+  bool _favoriteCheck = false;
+
+  set favoriteCheck(newValue) {
+    _favoriteCheck = newValue;
+    notifyListeners();
+  }
+
+  bool get favoriteCheck => _favoriteCheck;
+
   String get message => _message;
 
   Restaurant get result => _restaurant;

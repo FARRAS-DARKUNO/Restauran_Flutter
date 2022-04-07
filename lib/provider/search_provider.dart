@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:restauran_app_revisi/api/get_search_detail.dart';
-import 'package:restauran_app_revisi/model/Searching/seacrhingdata.dart';
-import 'package:restauran_app_revisi/provider/checkDataProvider.dart';
+import 'package:restauran_app_revisi/model/Searching/seacrhing_data.dart';
 
 enum ResultState { loading, noData, hasData, error }
 

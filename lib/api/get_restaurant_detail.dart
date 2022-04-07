@@ -1,6 +1,5 @@
 import 'api.dart';
 import 'dart:convert';
-
 import '../model/restauran_detail_data/restaurant.dart';
 
 class RestaurantDetail {

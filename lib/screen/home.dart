@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restauran_app_revisi/componen/titled.dart';
-import 'package:restauran_app_revisi/componen/empty.dart';
-import 'package:restauran_app_revisi/componen/haveData.dart';
-import 'package:restauran_app_revisi/componen/ckeckingData.dart';
-import 'package:restauran_app_revisi/provider/checkDataProvider.dart';
+import 'package:restauran_app_revisi/componen/ckecking_data.dart';
+import 'package:restauran_app_revisi/provider/check_data_provider.dart';
 import 'package:restauran_app_revisi/provider/search_provider.dart';
-import 'package:restauran_app_revisi/screen/detail.dart';
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
   @override
   State<Home> createState() => _HomeState();
 }

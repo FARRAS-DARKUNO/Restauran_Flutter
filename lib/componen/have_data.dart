@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:restauran_app_revisi/componen/no_internet.dart';
 import 'package:restauran_app_revisi/provider/list_provider.dart';
 import 'package:restauran_app_revisi/screen/detail.dart';
-import '../model/home_detail_data/homerestoran.dart';
-import 'package:restauran_app_revisi/provider/detailPageProvider.dart';
+import 'package:restauran_app_revisi/provider/detail_page_provider.dart';
 import 'package:provider/provider.dart';
 
 class HaveData extends StatefulWidget {
@@ -34,9 +32,13 @@ class _HaveDataState extends State<HaveData> {
             return InkWell(
               onTap: () {
                 detail.checking = value.result.restaurants[index].id;
+                detail.article = value.result.restaurants[index];
 
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => DetailPages()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            DetailPages(data: detail.article)));
               },
               child: Card(
                 color: Color.fromARGB(255, 220, 237, 252),
@@ -55,13 +57,14 @@ class _HaveDataState extends State<HaveData> {
                         Container(
                           padding: EdgeInsets.all(10),
                           child: Text(
-                            value.result.restaurants[index].name,
+                            value.result.restaurants[index].name.toString(),
                           ),
                         ),
                         Container(
                           padding: EdgeInsets.all(10),
                           child: Text(
-                            'lokasi : ' + value.result.restaurants[index].city,
+                            'lokasi : ' +
+                                value.result.restaurants[index].city.toString(),
                           ),
                         ),
                       ],

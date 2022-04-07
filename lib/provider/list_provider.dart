@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restauran_app_revisi/api/get_home_detail.dart';
-import 'package:restauran_app_revisi/model/home_detail_data/homedata.dart';
+import 'package:restauran_app_revisi/model/home_detail_data/home_data.dart';
 
 enum ResultState { loading, noData, hasData, error }
 

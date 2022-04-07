@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:restauran_app_revisi/componen/no_internet.dart';
 import 'package:restauran_app_revisi/provider/search_provider.dart';
 import 'package:restauran_app_revisi/screen/detail.dart';
-import '../model/Searching/searching.dart';
-import 'package:restauran_app_revisi/provider/detailPageProvider.dart';
+import 'package:restauran_app_revisi/provider/detail_page_provider.dart';
 import 'package:provider/provider.dart';
 
 class HaveSeach extends StatefulWidget {
@@ -53,9 +51,12 @@ class _HaveSeachState extends State<HaveSeach> {
               return InkWell(
                 onTap: () {
                   detail.checking = value.result!.restaurants[index].id;
-
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => DetailPages()));
+                  //detail.searching = value.result!.restaurants[index];
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailPages(
+                              data: value.result!.restaurants[index])));
                 },
                 child: Card(
                   color: Color.fromARGB(255, 220, 237, 252),
