@@ -34,11 +34,8 @@ class _HaveDataState extends State<HaveData> {
                 detail.checking = value.result.restaurants[index].id;
                 detail.article = value.result.restaurants[index];
 
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            DetailPages(data: detail.article)));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => DetailPages()));
               },
               child: Card(
                 color: Color.fromARGB(255, 220, 237, 252),

@@ -51,12 +51,9 @@ class _HaveSeachState extends State<HaveSeach> {
               return InkWell(
                 onTap: () {
                   detail.checking = value.result!.restaurants[index].id;
-                  //detail.searching = value.result!.restaurants[index];
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DetailPages(
-                              data: value.result!.restaurants[index])));
+                  detail.article = value.result!.restaurants[index];
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => DetailPages()));
                 },
                 child: Card(
                   color: Color.fromARGB(255, 220, 237, 252),

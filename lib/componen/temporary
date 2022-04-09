@@ -1,187 +1,33 @@
-SafeArea(
-                child: SingleChildScrollView(
-                  child: Container(
-                    color: Color.fromARGB(255, 203, 245, 247),
-                    margin: EdgeInsets.only(right: 8, left: 8, bottom: 8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Stack(
-                          children: <Widget>[
-                            Container(
-                              height: 265,
-                              child: Center(
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(30),
-                                  child: Image.network(
-                                      'https://restaurant-api.dicoding.dev/images/medium/${value.result.pictureId}'),
-                                ),
-                              ),
-                            ),
-                            CircleAvatar(
-                              backgroundColor: Colors.grey,
-                              child: IconButton(
-                                icon: Icon(
-                                  Icons.arrow_back,
-                                  color: Colors.white,
-                                ),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  value.result.name,
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(Icons.location_on),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      value.result.city,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Consumer<DatabaseProvider>(
-                                builder: (context, provider, child) {
-                              return value.favoriteCheck
-                                  ? IconButton(
-                                      icon: Icon(Icons.favorite),
-                                      color: Colors.red,
-                                      onPressed: () {
-                                        setState(() {
-                                          provider.removeBookmark(url);
-                                          value.favoriteCheck = false;
-                                          print('ini Remove');
-                                        });
-                                      })
-                                  : IconButton(
-                                      icon: Icon(Icons.favorite),
-                                      color: Colors.grey,
-                                      onPressed: () {
-                                        setState(() {
-                                          provider.addBookmark(detail.article);
-                                          value.favoriteCheck = true;
-                                          print('Ini Add');
-                                        });
-                                      });
-                            }),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          value.result.description,
-                          textAlign: TextAlign.justify,
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'MENU',
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Expanded(
-                              flex: 1,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    'FOODS',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineSmall,
-                                  ),
-                                  ListView.builder(
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      physics: NeverScrollableScrollPhysics(),
-                                      itemCount:
-                                          value.result.menus.foods.length,
-                                      itemBuilder: (context, index) {
-                                        return InkWell(
-                                          onTap: () {},
-                                          child: Card(
-                                            child: Container(
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                child: Center(
-                                                  child: Text(value.result.menus
-                                                      .foods[index].name),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    'Drinks',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineSmall,
-                                  ),
-                                  ListView.builder(
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      physics: NeverScrollableScrollPhysics(),
-                                      itemCount:
-                                          value.result.menus.drinks.length,
-                                      itemBuilder: (context, index) {
-                                        return InkWell(
-                                          onTap: () {},
-                                          child: Card(
-                                            child: Container(
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                child: Center(
-                                                  child: Text(value.result.menus
-                                                      .drinks[index].name),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              );
+<intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <service
+            android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="false"/>
+        <receiver
+            android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmBroadcastReceiver"
+            android:exported="false"/>
+        <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
+        <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">
+           <intent-filter>
+               <action android:name="android.intent.action.BOOT_COMPLETED"/>
+               <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+           </intent-filter>
+        </receiver>
+        <receiver
+            android:name="dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver"
+            android:enabled="false"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>

@@ -7,10 +7,8 @@ import 'package:restauran_app_revisi/provider/detail_page_provider.dart';
 import 'package:restauran_app_revisi/provider/detail_provider.dart';
 
 class DetailPages extends StatefulWidget {
-  final data;
   const DetailPages({
     Key? key,
-    required this.data,
   }) : super(key: key);
   @override
   State<DetailPages> createState() => _DetailPagesState();
@@ -131,7 +129,7 @@ class _DetailPagesState extends State<DetailPages> {
                                                 onPressed: () {
                                                   setState(() {
                                                     provider.addBookmark(
-                                                        widget.data);
+                                                        detail.article);
                                                     print('Ini Add');
                                                   });
                                                 }),

@@ -39,8 +39,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  DetailPages(data: detail.article)));
+                              builder: (context) => DetailPages()));
                     },
                     child: Card(
                       color: Color.fromARGB(255, 220, 237, 252),
