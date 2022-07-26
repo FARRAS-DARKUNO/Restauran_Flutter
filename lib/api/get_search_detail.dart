@@ -1,7 +1,6 @@
 import 'api.dart';
 import 'dart:convert';
-
-import '../model/Searching/seacrhingdata.dart';
+import '../model/Searching/seacrhing_data.dart';
 
 class RestauranSearch {
   final Api? api = Api();

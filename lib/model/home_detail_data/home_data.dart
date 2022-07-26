@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'homerestoran.dart';
+import 'home_restoran.dart';
 
 class HomeData {
   final bool error;
@@ -33,7 +33,7 @@ class HomeData {
     result.addAll({'error': error});
     result.addAll({'message': message});
     result.addAll({'count': count});
-    result.addAll({'restaurants': restaurants.map((x) => x.toMap()).toList()});
+    result.addAll({'restaurants': restaurants.map((x) => x.toJson()).toList()});
 
     return result;
   }
@@ -44,7 +44,7 @@ class HomeData {
       message: map['message'] ?? '',
       count: map['count']?.toInt() ?? 0,
       restaurants: List<Restaurant>.from(
-          map['restaurants']?.map((x) => Restaurant.fromMap(x))),
+          map['restaurants']?.map((x) => Restaurant.fromJson(x))),
     );
   }
 
